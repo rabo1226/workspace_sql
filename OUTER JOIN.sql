@@ -1,0 +1,37 @@
+
+#OUTER JOIN
+SELECT *
+FROM emp;
+
+SELECT *
+FROM dept;
+
+DELETE FROM dept 
+WHERE DEPTNO = 50;
+
+#모든 부서의 부서번호, 부서명, 지역, 부서에 소속된 사원의 사원번호, 사원명을 조회
+#안씨문법
+SELECT
+	dept.DEPTNO
+	, DNAME
+	, LOC
+	, EMPNO
+	, ENAME
+FROM dept
+LEFT OUTER JOIN emp
+ON DEPT.DEPTNO = EMP.DEPTNO
+ORDER BY dept.DEPTNO DESC;
+
+
+#오라클 OUTTER JOIN문법
+SELECT
+	dept.DEPTNO
+	, DNAME
+	, LOC
+	, EMPNO
+	, ENAME
+FROM dept, emp
+WHERE DEPT.DEPTNO(+) = EMP.DEPTNO
+ORDER BY dept.DEPTNO DESC;
+
+COMMIT;
